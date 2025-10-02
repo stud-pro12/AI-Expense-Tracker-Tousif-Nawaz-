@@ -1,6 +1,21 @@
-# AI-Expense-Tracker-Tousif-Nawaz-
+# AI-Expense-Tracker-Tousif-Nawaz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App is Live on VERCEL : https://ai-expense-tracker-tousif-nawaz-2p5.vercel.app/
+
+## 📸 Screenshots
+
+### Add Expense
+<img width="1463" height="862" alt="Screenshot 2025-10-02 at 7 52 27 AM" src="https://github.com/user-attachments/assets/2d69e9c4-35b2-469c-a4cd-c94a309cd91f" />
+
+### Dashboard
+<img width="1463" height="862" alt="Screenshot 2025-10-02 at 7 52 41 AM" src="https://github.com/user-attachments/assets/7e9cacbe-069e-479c-982c-3a9e41a19868" />
+
+### AI Insights
+<img width="1463" height="862" alt="Screenshot 2025-10-02 at 7 52 57 AM" src="https://github.com/user-attachments/assets/13afe8f4-ecea-4f75-bf4f-ad24439a2172" />
+
+### Predictions
+<img width="1463" height="862" alt="Screenshot 2025-10-02 at 7 53 07 AM" src="https://github.com/user-attachments/assets/6eeb21ce-8b07-4c13-8573-f3bb591f29e0" />
+
 
 ## Available Scripts
 
