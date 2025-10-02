@@ -362,7 +362,7 @@ function App() {
                         </div>
                         <div className="expense-right">
                           <span className="expense-amount" style={{ color: cat.color }}>
-                            ${exp.amount.toFixed(2)}
+                            ₹{exp.amount.toFixed(2)}
                           </span>
                           <button onClick={() => deleteExpense(exp.id)} className="btn-delete">
                             🗑️
