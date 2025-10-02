@@ -297,7 +297,7 @@ function App() {
               <h2 className="card-title">➕ Add New Expense</h2>
               
               <div className="form-group">
-                <label>Amount ($)</label>
+                <label>Amount (₹)</label>
                 <input
                   type="number"
                   value={amount}
