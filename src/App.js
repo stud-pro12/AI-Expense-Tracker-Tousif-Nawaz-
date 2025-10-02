@@ -13,16 +13,16 @@ function App() {
   const [aiInsights, setAiInsights] = useState(null);
   const [predictions, setPredictions] = useState(null);
 
-  // CATEGORIES WITH BUDGETS (IN RUPEES)
+  // CATEGORIES WITH BUDGETS
   const categories = [
-    { value: 'food', label: '🍔 Food & Dining', color: '#FF6B6B', budget: 5000 },
-    { value: 'rent', label: '🏠 Rent & Bills', color: '#4ECDC4', budget: 15000 },
-    { value: 'travel', label: '✈️ Travel', color: '#45B7D1', budget: 3000 },
-    { value: 'entertainment', label: '🎮 Entertainment', color: '#FFA07A', budget: 2000 },
-    { value: 'shopping', label: '🛍️ Shopping', color: '#98D8C8', budget: 4000 },
-    { value: 'healthcare', label: '💊 Healthcare', color: '#F7DC6F', budget: 1500 },
-    { value: 'education', label: '📚 Education', color: '#BB8FCE', budget: 2500 },
-    { value: 'other', label: '📦 Other', color: '#85929E', budget: 2000 }
+    { value: 'food', label: '🍔 Food & Dining', color: '#FF6B6B', budget: 500 },
+    { value: 'rent', label: '🏠 Rent & Bills', color: '#4ECDC4', budget: 1200 },
+    { value: 'travel', label: '✈️ Travel', color: '#45B7D1', budget: 300 },
+    { value: 'entertainment', label: '🎮 Entertainment', color: '#FFA07A', budget: 200 },
+    { value: 'shopping', label: '🛍️ Shopping', color: '#98D8C8', budget: 400 },
+    { value: 'healthcare', label: '💊 Healthcare', color: '#F7DC6F', budget: 150 },
+    { value: 'education', label: '📚 Education', color: '#BB8FCE', budget: 250 },
+    { value: 'other', label: '📦 Other', color: '#85929E', budget: 200 }
   ];
 
   // AUTO-GENERATE AI INSIGHTS WHEN EXPENSES CHANGE
@@ -255,7 +255,7 @@ function App() {
           </div>
           <div className="header-right">
             <p className="total-label">Total Spent</p>
-            <p className="total-amount">₹{totalSpent.toFixed(2)}</p>
+            <p className="total-amount">${totalSpent.toFixed(2)}</p>
           </div>
         </div>
       </header>
@@ -296,7 +296,7 @@ function App() {
               <h2 className="card-title">➕ Add New Expense</h2>
               
               <div className="form-group">
-                <label>Amount (₹)</label>
+                <label>Amount ($)</label>
                 <input
                   type="number"
                   value={amount}
@@ -361,7 +361,7 @@ function App() {
                         </div>
                         <div className="expense-right">
                           <span className="expense-amount" style={{ color: cat.color }}>
-                            ₹{exp.amount.toFixed(2)}
+                            ${exp.amount.toFixed(2)}
                           </span>
                           <button onClick={() => deleteExpense(exp.id)} className="btn-delete">
                             🗑️
@@ -383,7 +383,7 @@ function App() {
               <div className="stat-card purple">
                 <div className="stat-content">
                   <p className="stat-label">Total Expenses</p>
-                  <p className="stat-value">₹{totalSpent.toFixed(2)}</p>
+                  <p className="stat-value">${totalSpent.toFixed(2)}</p>
                 </div>
                 <div className="stat-icon">💰</div>
               </div>
@@ -400,7 +400,7 @@ function App() {
                 <div className="stat-content">
                   <p className="stat-label">Avg per Day</p>
                   <p className="stat-value">
-                    ₹{(totalSpent / Math.max(1, new Set(expenses.map(e => e.date.toDateString())).size)).toFixed(2)}
+                    ${(totalSpent / Math.max(1, new Set(expenses.map(e => e.date.toDateString())).size)).toFixed(2)}
                   </p>
                 </div>
                 <div className="stat-icon">📈</div>
@@ -489,7 +489,7 @@ function App() {
                           />
                         </div>
                         <p className="insight-text">
-                          ₹{item.spent.toFixed(2)} of ₹{item.budget} budget
+                          ${item.spent.toFixed(2)} of ${item.budget} budget
                         </p>
                       </div>
                     ))}
@@ -536,17 +536,17 @@ function App() {
                         <h4>{tip.category}</h4>
                         <p>{tip.tip}</p>
                         <div className="tip-savings">
-                          ➡️ Potential savings: <strong>₹{tip.potential}/month</strong>
+                          ➡️ Potential savings: <strong>${tip.potential}/month</strong>
                         </div>
                       </div>
                     </div>
                   ))}
                   <div className="total-savings">
                     <p className="total-savings-text">
-                      <strong>Total Potential Savings: ₹{aiInsights.savingsTips.reduce((sum, tip) => sum + tip.potential, 0)}/month</strong>
+                      <strong>Total Potential Savings: ${aiInsights.savingsTips.reduce((sum, tip) => sum + tip.potential, 0)}/month</strong>
                     </p>
                     <p className="yearly-savings">
-                      That's ₹{(aiInsights.savingsTips.reduce((sum, tip) => sum + tip.potential, 0) * 12).toLocaleString()} per year! 🎉
+                      That's ${(aiInsights.savingsTips.reduce((sum, tip) => sum + tip.potential, 0) * 12).toLocaleString()} per year! 🎉
                     </p>
                   </div>
                 </div>
@@ -576,7 +576,7 @@ function App() {
                 <div className="stats-grid">
                   <div className="stat-card gradient">
                     <p className="stat-label">Predicted Total</p>
-                    <p className="stat-value">₹{predictions.nextMonthTotal}</p>
+                    <p className="stat-value">${predictions.nextMonthTotal}</p>
                   </div>
                   <div className="stat-card gradient">
                     <p className="stat-label">Confidence Level</p>
@@ -611,7 +611,7 @@ function App() {
                   <h3 className="card-title">💡 AI Recommendations</h3>
                   <div className="recommendations">
                     <div className="recommendation-item">
-                      <p><strong>Budget Alert:</strong> Based on patterns, budget ₹{predictions.nextMonthTotal} for next month.</p>
+                      <p><strong>Budget Alert:</strong> Based on patterns, budget ${predictions.nextMonthTotal} for next month.</p>
                     </div>
                     {predictions.trend === 'increasing' && (
                       <div className="recommendation-item">
@@ -619,7 +619,7 @@ function App() {
                       </div>
                     )}
                     <div className="recommendation-item">
-                      <p><strong>Planning Tip:</strong> Set aside ₹{(predictions.nextMonthTotal * 1.1).toFixed(2)} (10% buffer) for unexpected expenses.</p>
+                      <p><strong>Planning Tip:</strong> Set aside ${(predictions.nextMonthTotal * 1.1).toFixed(2)} (10% buffer) for unexpected expenses.</p>
                     </div>
                   </div>
                 </div>
