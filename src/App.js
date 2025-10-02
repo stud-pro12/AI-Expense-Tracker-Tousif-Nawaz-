@@ -256,7 +256,7 @@ function App() {
           </div>
           <div className="header-right">
             <p className="total-label">Total Spent</p>
-            <p className="total-amount">${totalSpent.toFixed(2)}</p>
+            <p className="total-amount">₹{totalSpent.toFixed(2)}</p>
           </div>
         </div>
       </header>
